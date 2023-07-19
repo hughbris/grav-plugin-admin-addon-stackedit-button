@@ -1,0 +1,33 @@
+name: Admin Addon Stackedit Button
+slug: admin-addon-stackedit-button
+type: plugin
+version: 0.1.0
+description: Adds a button to selected markdown editors in Admin area
+icon: plug
+author:
+  name: Hugh Barnes
+  email: dev@hubns.com
+homepage: https://github.com/hughbris/grav-plugin-admin-addon-stackedit-button
+# demo: http://demo.yoursite.com
+keywords: admin, editor, stackedit
+bugs: https://github.com/hughbris/grav-plugin-admin-addon-stackedit-button/issues
+docs: https://github.com/hughbris/grav-plugin-admin-addon-stackedit-button/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+  - { name: admin, version: '>=1.10' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
