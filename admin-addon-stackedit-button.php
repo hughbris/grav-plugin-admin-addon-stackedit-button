@@ -11,13 +11,6 @@ class AdminAddonStackeditButtonPlugin extends Plugin
 {
     /**
      * @return array
-     *
-     * The getSubscribedEvents() gives the core a list of events
-     *     that the plugin wants to listen to. The key of each
-     *     array section is the event that the plugin listens to
-     *     and the value (in the form of an array) contains the
-     *     callable (or function) as well as the priority. The
-     *     higher the number the higher the priority.
      */
     public static function getSubscribedEvents(): array
     {
@@ -40,7 +33,15 @@ class AdminAddonStackeditButtonPlugin extends Plugin
 
         // Enable the main events we are interested in
         $this->enable([
-            // Put your main events here
+            'onAssetsInitialized' => ['addAssets', 10],
         ]);
+    }
+
+    public function addAssets() {
+        if ($this->isAdmin()) {
+            $this->grav['assets']->addJs('https://unpkg.com/stackedit-js@1.0.7/docs/lib/stackedit.min.js'); # TODO: add this URL by config
+            $this->grav['assets']->addJs("plugin://{$this->name}/assets/admin/buttons/stackedit.js");
+            $this->grav['assets']->addCss("plugin://{$this->name}/css/plugin-stackedit.css");
+        }
     }
 }

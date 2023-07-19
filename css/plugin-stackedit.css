@@ -1,0 +1,15 @@
+.form-field.stackedit .grav-editor-button-open-stackeditplus i.stackedit {
+  background-image: url("../assets/admin/buttons/stackedit.svg");
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+}
+
+/* toggle displaying the stackeditplus button which can''t be discriminately added using the addButton method; specific selector contexts required to override core style; these two rules affectively implement a negative selector */
+.grav-editor-toolbar ul li.grav-editor-button-open-stackeditplus {
+  display: none;
+}
+
+.form-field.stackedit .grav-editor-toolbar ul li.grav-editor-button-open-stackeditplus {
+  display: inline-block;
+}
